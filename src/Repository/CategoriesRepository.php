@@ -21,21 +21,18 @@ class CategoriesRepository extends ServiceEntityRepository
 
 
     public function getCategories() {
-
         $p_cat =  $this->createQueryBuilder('p')
                     ->andWhere('p.parent = :val')
                     ->setParameter('val', 0)->getQuery()->execute();
-
         
         foreach ($p_cat as $key => $value) {
            $value->child =  $this->createQueryBuilder('p')
                     ->andWhere('p.parent = :val')
                     ->setParameter('val', $value->getId())->getQuery()->execute();
-        }
-
-        
+        }        
         return $p_cat;
     }
+
 
 //    /**
 //     * @return Categories[] Returns an array of Categories objects

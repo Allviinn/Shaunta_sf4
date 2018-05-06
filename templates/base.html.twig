@@ -13,7 +13,7 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
-			<a href="" class="navbar-brand">Shaunta's Boutique</a>
+			<a href="/" class="navbar-brand">Shaunta's Boutique</a>
 			<ul class="nav navbar-nav">
 				{% for p_cat in cat %}
 				<li class="dropdown">
@@ -22,7 +22,7 @@
 					</a>
 					<ul class="dropdown-menu" role="menu">
 						{% for c_cat in p_cat.child %}
-						<li><a href="category.php?cat=<?=$parent2['id'];?>">{{ c_cat.category }}</a></li>
+						<li><a href="/category/{{ c_cat.id }}">{{ c_cat.category }}</a></li>
 						{% endfor %}
 					</ul>
 				</li>

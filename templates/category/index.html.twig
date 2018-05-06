@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produits par catégorie{% endblock %}
+
+{% block body %}
+
+		<h2 class="text-center">{{ parent_cat }} - {{ child_cat }}</h2>
+
+	
+		{% for prod in products %}
+		<div class="col-md-3 product-div">
+			<h4 class="product_title text-center">{{ prod.title }}</h4>
+			
+			<img src="{{ prod.image }}" alt="{{ prod.image }}" class="img-thumb center-block"/>
+<!-- 			<p class="list-price text-danger text-center">
+				List Price: <s>$</s>
+			</p> -->
+			<p class="price text-center">
+				Our Price : ${{ prod.price }}
+			</p>
+			<button type="button" class="btn btn-sm btn-success center-block" onclick="detailModal(<?= $products['id']; ?>)">
+				Details
+			</button>
+		</div>
+		
+		{% endfor %}
+
+{% endblock %}
