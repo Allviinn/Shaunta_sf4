@@ -3,37 +3,27 @@
 {% block title %}Welcome on Shaunta's Boutique{% endblock %}
 
 {% block body %}
-<!-- en tete sous la navigation (fleurs et logo avec effets de scroll) -->
-<div id="headerWrapper">	
-	<div id="back-flower"></div>
-	<div id="logo-text"></div>
-	<div id="for-flower"></div>
-</div>
-
-<div class="container-fluid">
-	
 
 
 
+	<!-- CONTENU PRINCIPAL-->
 
+			<h2 class="text-center">Feature Products</h2>
 
-</div>
-{% endblock %}
-
-
-{% block footer %}
-<!-- PIED DE PAGE, FOOTER -->
-<footer class="text-center" id="footer">	
-	&copy; Copyright 2013-2017 Shaunta's Boutique
-</footer>
-
-
-{% endblock %}
-
-
-
-
-
-{% block javascripts %}
-
+			{% for prod in products %}
+			<div class="col-md-3 product-div">
+				<h4 class="product_title text-center">{{ prod.title }}</h4>
+				
+				<img src="{{ prod.image }}" alt="{{ prod.image }}" class="img-thumb center-block product-img"/>
+				<!-- <p class="list-price text-danger text-center">
+					List Price: <s>$</s>
+				</p> -->
+				<p class="price text-center">
+					Our Price : ${{ prod.price }}
+				</p>
+				<button type="button" class="btn btn-sm btn-success center-block" onclick="detailModal({{ prod.id }})">
+					Details
+				</button>
+			</div>
+			{% endfor %}
 {% endblock %}
